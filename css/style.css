@@ -223,7 +223,7 @@ nav .container {
     padding: 10px 15px;
     align-items: stretch; /* Changed from center to make items fill height */
     justify-content: space-between;
-    width: 112%; /* Changed from fit-content to fill #Nalepnice */
+    width: 107%; /* Changed from fit-content to fill #Nalepnice */
     border-radius: 2px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
 }
@@ -528,6 +528,7 @@ nav .container {
     .post__content2{
         padding-left: 5%;
         padding-right: 10%;
+        width: 105%;
     }
     .post__subtitle1_mobile{
         font-size: 18px;
@@ -536,6 +537,7 @@ nav .container {
         font-weight: 600;
         margin: 0;
         display: block; /* Changed from contents to block for standard paragraph display */
+        padding-bottom: 10%;
     }
     .post__subtitle1{
         display:none;
