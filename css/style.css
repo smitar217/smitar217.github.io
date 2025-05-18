@@ -193,6 +193,12 @@ nav .container {
     margin: 0;
 }
 
+/* Hide mobile-specific subtitle by default */
+.post__subtitle1_mobile {
+    display: none;
+}
+
+
 .post__description {
     font-size: 16px;
     color: #777;
@@ -529,7 +535,7 @@ nav .container {
         margin-bottom: 20px;
         font-weight: 600;
         margin: 0;
-        display:contents;
+        display: block; /* Changed from contents to block for standard paragraph display */
     }
     .post__subtitle1{
         display:none;
