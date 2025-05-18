@@ -23,10 +23,13 @@ nav {
 nav .container {
     margin: 0 5%;
     padding: 0 5%;
+    padding-left: 2%;
+    margin-left: 1%;
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 70%;
+    gap: 46%;
 }
 
 .logo {
@@ -77,6 +80,9 @@ nav .container {
 }
 
 .post__content1{
+    /* padding-left: 1%; */ /* Consider removing if parent padding is enough */
+    flex: 1; /* Takes available space on the left */
+    max-width: 50%;
     padding-left: 5%;
 }
 
@@ -140,11 +146,15 @@ nav .container {
     flex: 0 0 100%;
 }
 .post__content-wrap1 {
-    flex: 0 0 100%;
+    flex: 0 5% 100%;
     padding-top: 13vh;
-    padding-left: 5%;
+    padding-right: 5%; /* Added for symmetrical padding */
     padding-bottom: 1%;
     background-color: #e6e6e6;
+    display: flex; /* Make it a flex container */
+    justify-content: space-between; /* Push children to ends */
+    align-items: flex-start; /* Align children to the top */
+    gap: 1%; /* Space between .post__content1 and #Nalepnice */
 }
 
 .post__content {
@@ -188,6 +198,66 @@ nav .container {
     color: #777;
     line-height: 1.6;
     font-weight: 500;
+}
+
+/* Styling for the right-aligned box with text and image */
+/* #Nalepnice is now primarily a positioning wrapper for .post__content2 */
+#Nalepnice {
+    /* Removed display:flex, background, padding, specific alignments, margin-left, width, border-radius */
+    /* These are now mostly on .post__content2 or handled by parent flex */
+    flex-shrink: 0; /* Prevent this section from shrinking if .post__content1 is long */
+    max-width: 50%; 
+    border-radius: 8px;  /* Constrain the maximum width of this section */
+}
+/* New rule for .post__content2, which is the actual styled box */
+.post__content2 {
+    display: flex;
+    flex-direction: row;
+    background-color: #ffe5cc; /* Your preferred background */
+    padding: 10px 15px;
+    align-items: stretch; /* Changed from center to make items fill height */
+    justify-content: space-between;
+    width: 112%; /* Changed from fit-content to fill #Nalepnice */
+    border-radius: 2px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
+}
+.post__content2 .nalepnice_post_subtitle{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start; /* Corrected from 'left' */
+    flex: 1; /* Takes remaining space; removed width: 60% */
+    height: 100%;
+}
+
+/* Styles for the text paragraph on the left side within .post__content2 */
+.post__content2 .post__subtitle2 { /* Selector changed from #Nalepnice .post__subtitle2 */
+    font-size: 18px;
+    color: #8d4d04;
+    font-weight: 600;
+    margin: 0;                  /* Remove default paragraph margins */
+    margin-right: 10px;         /* Added space between text and image */
+    overflow-wrap: break-word;  /* Allow long words to break and wrap */
+    white-space: normal;        /* Ensure default text wrapping behavior */
+}
+.post__content2 .post__subtitle2 img{
+    height: 60px;
+    width: auto;
+}
+.post__content2 .post__subtitle3{
+    color: #695a46;
+    font-weight: 600;
+    margin: 0;
+    overflow-wrap: break-word;
+}
+
+/* Styles for the image container on the right side within .post__content2 */
+.post__content2 .post__image_nalepnice { /* Selector changed from #Nalepnice .post__image_nalepnice */
+    flex: 0 0 40%; /* Do not grow, do not shrink, basis is 50%. Replaces width: 200px */
+    background-size: cover;
+    background-position: center;
+    border-radius: 4px;
+    /* flex-shrink: 0; is covered by flex shorthand */
 }
 
 .manufacturers-container {
@@ -372,6 +442,11 @@ nav .container {
 .download-box .button.darkgray:hover {
     background-color:  #3b3b3b;
 }
+@media (min-width: 1025px) and (max-width: 1300px) {
+    nav .container {
+        gap: 16%;
+    }
+}
 /* Update responsive styles */
 @media (max-width: 1024px) {
     .menu-toggle {
@@ -380,6 +455,7 @@ nav .container {
 
     nav .container {
         width: 90%;
+        gap: 5%;
     }
 
     .desktop-nav {
@@ -429,6 +505,34 @@ nav .container {
 
     .manufacturer-section:last-child {
         border-bottom: none;
+    }
+
+    /* Stack .post__content1 and #Nalepnice vertically */
+    .post__content-wrap1 {
+        flex-direction: column;
+    }
+    .post__content1{
+        max-width: 100%;
+    }
+
+    /* Allow #Nalepnice to take full width in stacked layout */
+    #Nalepnice {
+        max-width: 100%; /* Or 'none' */
+    }
+    .post__content2{
+        padding-left: 5%;
+        padding-right: 10%;
+    }
+    .post__subtitle1_mobile{
+        font-size: 18px;
+        color: #666;
+        margin-bottom: 20px;
+        font-weight: 600;
+        margin: 0;
+        display:contents;
+    }
+    .post__subtitle1{
+        display:none;
     }
 }
 
