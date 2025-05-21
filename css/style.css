@@ -1,4 +1,3 @@
-/* Reset and Base Styles */
 * {
     margin: 0;
     padding: 0;
@@ -85,7 +84,20 @@ nav .container {
     max-width: 50%;
     padding-left: 5%;
 }
-
+.post__content2 .post__image_nalepnice { /* Selector changed from #Nalepnice .post__image_nalepnice */
+    flex: 0 0 40%; /* Do not grow, do not shrink, basis is 40%. */
+    background-size: cover;
+    background-position: center;
+    border-radius: 4px;
+    position: relative; /* Added for positioning children */
+    overflow: hidden;   /* Added to contain scaled image */
+    transition: transform 0.3s ease; /* Added for hover effect */
+    transform: scale(1); /* Base state for hover effect */
+    /* flex-shrink: 0; is covered by flex shorthand */
+}
+.post__content2:hover .post__image_nalepnice {
+        transform: scale(1.05);
+    }
 .wrap {
     max-width: 100%;
     padding: 10px 10px;
@@ -155,6 +167,7 @@ nav .container {
     justify-content: space-between; /* Push children to ends */
     align-items: flex-start; /* Align children to the top */
     gap: 1%; /* Space between .post__content1 and #Nalepnice */
+
 }
 
 .post__content {
@@ -247,14 +260,15 @@ nav .container {
     white-space: normal;        /* Ensure default text wrapping behavior */
 }
 .post__content2 .post__subtitle2 img{
-    height: 60px;
-    width: auto;
+    height: auto;
+    width: 80%;
 }
 .post__content2 .post__subtitle3{
     color: #695a46;
     font-weight: 600;
     margin: 0;
     overflow-wrap: break-word;
+    padding-right: 1%;
 }
 
 /* Styles for the image container on the right side within .post__content2 */
@@ -449,15 +463,93 @@ nav .container {
     background-color:  #3b3b3b;
 }
 .container_footer{
-    background-color: #e6e6e6;
-    padding-top: 2%;
-    padding-bottom: 2%;
-    padding-left: 5%;
-    padding-right: 5%;
+    /* background-color: #e6e6e6; Removed, sections will have own backgrounds */
+    /* padding: 2% 5%; Removed, sections will have own padding */
     z-index: 1000;
+    display: flex;
+    flex-direction: row; /* Side-by-side for desktop */
+    /* align-items: center; Removed, sections will stretch or align internally */
+    /* text-align: center; Removed, sections will align internally */
+    /* gap: 20px; Removed, no gap needed if sections fill width */
+}
+
+.footer-section {
+    flex: 1; /* Each section takes equal width */
+    padding: 25px 20px; /* Generous padding within each section */
+    min-height: 150px; /* Ensure a minimum height for visual balance */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center content vertically */
+    align-items: center; /* Center content horizontally */
+    text-align: center; /* Center text */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+/* Contrasting Background Colors */
+.footer-section-1 {
+    background-color: #ffffff; /* Dark gray, contrasts with white manufacturer section */
+    color: #f0f0f0; /* Light text for dark background */
+}
+
+.footer-section-2 {
+    background-color: #ffffff; /* Light gray, contrasts with dark gray manufacturer section */
+    color: #333; /* Dark text for light background */
+}
+
+.footer-section-3 {
+    background-color: #525252; /* Dark gray */
+    color: #f0f0f0; /* Light text */
+}
+
+.footer-section-4 {
+    background-color: #525252; /* Light gray */
+    color: #ffffff; /* Dark text */
+}
+
+/* Styling for content within footer sections */
+.footer-section h3 {
+    font-size: 1.3em;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.footer-section p {
+    font-size: 0.95em;
+    margin-bottom: 8px;
+    line-height: 1.6;
+}
+
+/* Link styling specific to footer sections for contrast */
+.footer-section-1 a, .footer-section-3 a {
+    color: #add8e6; /* Light blue for dark backgrounds */
+    text-decoration: none;
+    transition: color 0.3s ease;
+    font-size: 1.3em;
+    font-weight: bold;
+}
+.footer-section-1 a:hover, .footer-section-3 a:hover {
+    color: #ffffff; /* White on hover for dark backgrounds */
     
 }
 
+.footer-section-2 a, .footer-section-4 a {
+    color: #0056b3; /* Standard blue for light backgrounds */
+    text-decoration: none;
+    transition: color 0.3s ease;
+    font-size: 1.3em;
+    font-weight: bold;
+}
+.footer-section-2 a:hover, .footer-section-4 a:hover {
+    color: #007bff; /* Brighter blue on hover for light backgrounds */
+}
+
+.copyright_text {
+    font-size: 0.9em;
+    /* color: #555; Color will be inherited from .footer-section-1 */
+}
+
+/* Remove old .contact-info styles as they are now handled by .footer-section direct children */
+/* .contact-info, .contact-info h3, .contact-info p, .contact-info a styles removed or integrated */
 
 @media (min-width: 1025px) and (max-width: 1300px) {
     nav .container {
@@ -538,11 +630,13 @@ nav .container {
     }
     .post__content-wrap1{
         padding-bottom: 20%;
+        padding-right: 2%;
     }
     .post__content2{
         padding-left: 5%;
         padding-right: 10%;
-        width: 105%;
+        width: 102%;
+        height: 25vh;
     }
     .post__subtitle1_mobile{
         font-size: 18px;
@@ -556,5 +650,43 @@ nav .container {
     .post__subtitle1{
         display:none;
     }
+    .post__content2 .post__subtitle2 img{
+        height: auto;
+        width: 100%;
+    }
+    .container_footer {
+        flex-direction: column; /* Stack sections vertically */
+    }
+
+    .footer-section {
+        min-height: auto; /* Allow height to adjust to content on mobile */
+        padding: 20px; /* Slightly reduce padding for mobile */
+    }
+    .footer-section-1 {
+        padding: 0;
+        height: 0;
+    }
 }
 
+@media (min-width: 600px) and (max-width: 1024px) {
+  section.manufacturer-section .wrap {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two equal columns for the 2x2 layout */
+    /* gap: 20px; */ /* This is inherited from the global .wrap style */
+  }
+
+  section.manufacturer-section .wrap .post:first-child {
+    grid-column: 1 / span 2; /* Make the first post span both columns */
+    /* You might want to adjust padding or image height for the first post if it looks too stretched */
+  }
+
+  section.manufacturer-section .wrap .download-box {
+    grid-column: 1 / span 2; /* Make the download box span both columns */
+    /* The global style `margin: 40px auto;` on .download-box will handle the centering */
+    /* If margin: auto doesn't work as expected due to grid interactions, you could also try: */
+    /* justify-self: center; */
+  }
+
+  /* Ensure that if there are more than 5 posts, they continue in the 2-column layout */
+  /* This is the default behavior with the grid setup above, so no extra rule needed unless specific styling is required for posts 2-5 only. */
+}
