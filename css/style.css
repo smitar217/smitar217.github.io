@@ -84,7 +84,7 @@ nav .container {
     max-width: 50%;
     padding-left: 5%;
 }
-.post__content2 .post__image_nalepnice { /* Selector changed from #Nalepnice .post__image_nalepnice */
+.post__image_nalepnice { /* Selector changed from #Nalepnice .post__image_nalepnice */
     flex: 0 0 40%; /* Do not grow, do not shrink, basis is 40%. */
     background-size: cover;
     background-position: center;
@@ -95,9 +95,16 @@ nav .container {
     transform: scale(1); /* Base state for hover effect */
     /* flex-shrink: 0; is covered by flex shorthand */
 }
-.post__content2:hover .post__image_nalepnice {
+.post__image_nalepnice:hover {
         transform: scale(1.05);
     }
+.post__image_nalepnice .link{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
 .wrap {
     max-width: 100%;
     padding: 10px 10px;
