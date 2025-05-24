@@ -558,20 +558,22 @@ nav .container {
 /* Remove old .contact-info styles as they are now handled by .footer-section direct children */
 /* .contact-info, .contact-info h3, .contact-info p, .contact-info a styles removed or integrated */
 
-@media (min-width: 1025px) and (max-width: 1300px) {
+@media (min-width: 1230px) and (max-width: 1360px) {
     nav .container {
         gap: 16%;
+        padding-left: 0;
     }
 }
 /* Update responsive styles */
-@media (max-width: 1024px) {
+@media (max-width: 1230px) {
     .menu-toggle {
         display: block;
     }
 
     nav .container {
         width: 90%;
-        gap: 5%;
+        gap: 11%;
+        padding-left: 0;
     }
 
     .desktop-nav {
@@ -590,7 +592,7 @@ nav .container {
         height: 100vh;
         background: #fff;
         flex-direction: column;
-        padding: 80px 20px 20px;
+        padding: 20px 20px 20px;
         box-shadow: 2px 0 5px rgba(0,0,0,0.1);
         transform: translateX(0);
     }
@@ -606,6 +608,68 @@ nav .container {
 
     .nav-links li:last-child {
         border-bottom: none;
+    }
+    .nav-links.mobile-nav .mobile-contact-item {
+        padding: 2px 0; /* Compact vertical padding; horizontal padding is from UL */
+        border-bottom: none; /* No borders between these compact contact items */
+        text-align: left;
+        list-style-type: none; /* Ensure no bullets */
+    }
+
+    /* Email */
+    .nav-links.mobile-nav .mobile-contact-item.contact-email {
+        padding-top: 10px; /* Add some space before the first contact item */
+        padding-bottom: 5px; /* Space after email */
+    }
+    .nav-links.mobile-nav .mobile-contact-item.contact-email a {
+        color: #0056b3;
+    } 
+
+    /* Tel: / GSM: Labels */
+    .nav-links.mobile-nav .mobile-contact-item.contact-section-label {
+        font-weight: bold;
+        padding-top: 8px; /* Space above label */
+        padding-bottom: 1px; /* Space below label */
+    }
+
+    /* Telephone Numbers */
+    .nav-links.mobile-nav .mobile-contact-item.tel-number {
+        padding-top: 1px;
+        padding-bottom: 1px;
+    }
+    .nav-links.mobile-nav .mobile-contact-item.tel-number a{
+        color: #0056b3;
+    }
+    /* Space after the block of tel numbers */
+    .nav-links.mobile-nav .mobile-contact-item.tel-number:last-of-type { /* Targets the second tel-number li */
+        padding-bottom: 8px; 
+    }
+
+    /* GSM Entries */
+    .nav-links.mobile-nav .mobile-contact-item.gsm-entry {
+        padding-top: 1px;
+        padding-bottom: 1px; /* Compact spacing for each GSM line */
+    }
+    .nav-links.mobile-nav .mobile-contact-item.gsm-entry .gsm-number-link {
+        display: block; /* GSM number on its own line */
+    }
+    .nav-links.mobile-nav .mobile-contact-item.gsm-entry a{
+        color: #0056b3;
+    }
+    .nav-links.mobile-nav .mobile-contact-item.gsm-entry .social-links-inline {
+        display: block; /* WhatsApp/Viber on line below number */
+        margin-top: 1px; /* Tiny space above social links */
+    }
+    .nav-links.mobile-nav .mobile-contact-item.gsm-entry .social-links-inline a {
+        margin: 0 3px; /* Space between WhatsApp and Viber */
+        color: #818181;
+        /* text-decoration: none; /* Or underline, as preferred */
+    }
+    
+    /* Ensure the very last item in the mobile nav has no bottom border */
+    /* This is important if the general .nav-links li rule adds one */
+    .nav-links.mobile-nav > li:last-child {
+      border-bottom: none;
     }
 
     .manufacturers-container {
@@ -624,9 +688,6 @@ nav .container {
     }
 
     /* Stack .post__content1 and #Nalepnice vertically */
-    .post__content-wrap1 {
-        flex-direction: column;
-    }
     .post__content1{
         max-width: 100%;
     }
@@ -636,14 +697,17 @@ nav .container {
         max-width: 100%; /* Or 'none' */
     }
     .post__content-wrap1{
-        padding-bottom: 20%;
+        flex-direction: column;
+        padding-bottom: 0;
         padding-right: 2%;
     }
     .post__content2{
         padding-left: 5%;
-        padding-right: 10%;
+        padding-right: 2%;
         width: 102%;
-        height: 25vh;
+        height:  30vh;
+        padding-bottom: 5vh;
+
     }
     .post__subtitle1_mobile{
         font-size: 18px;
@@ -675,7 +739,7 @@ nav .container {
     }
 }
 
-@media (min-width: 600px) and (max-width: 1024px) {
+@media (min-width: 600px) and (max-width: 1230px) {
   section.manufacturer-section .wrap {
     display: grid;
     grid-template-columns: 1fr 1fr; /* Two equal columns for the 2x2 layout */
@@ -693,7 +757,73 @@ nav .container {
     /* If margin: auto doesn't work as expected due to grid interactions, you could also try: */
     /* justify-self: center; */
   }
+  .nav-links {
+
+    left: -40%;
+    width: 40%;
+    }
+    .nav-links.mobile-nav .mobile-contact-item {
+        font-size: 1.1em;
+        text-align: left;
+    }
 
   /* Ensure that if there are more than 5 posts, they continue in the 2-column layout */
   /* This is the default behavior with the grid setup above, so no extra rule needed unless specific styling is required for posts 2-5 only. */
+}
+@media (max-width: 410px) {
+    .post__subtitle3{
+        font-size: 0.95em;
+    }
+    .post__content2{
+        height: 36vh;
+    }
+    .mobile-contact-item{
+        font-size: 0.9em
+    }
+    .mobile-contact-item.contact-email{
+        font-size: 0.8em
+    }
+
+}
+@media (max-width: 335px) {
+    .nav-links {
+
+        left: -80%;
+        width: 80%;
+    
+    }
+    .post__subtitle3{
+        font-size: 0.85em;
+    }
+    .nav-links.mobile-nav .mobile-contact-item {
+        font-size: 0.9em;
+        text-align: center;
+    }
+    .nav-links.mobile-nav .mobile-contact-item.contact-email {
+        font-size: 0.7em;
+        text-align: center;
+    }
+
+    
+    
+}
+@media (min-width: 1026px) and (max-width: 1230px) {
+    .post__content1{
+        width: 100%;
+    }
+    #Nalepnice{
+        width: 100%;
+    }
+    .post__content2{
+        padding-right: 2%;
+    }
+}
+@media (width: 344px) and (height: 882px) {
+    .menu-toggle{
+        padding-left: 0;
+    }
+    nav .container{
+        padding-left: 0;
+
+    }
 }
