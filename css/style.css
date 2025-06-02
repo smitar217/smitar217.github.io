@@ -575,10 +575,6 @@ nav .container {
         gap: 11%;
         padding-left: 0;
     }
-    .logo img {
-        height: 60px;
-        padding: 3%;
-    }
     .desktop-nav {
         display: none;
     }
@@ -774,6 +770,13 @@ nav .container {
   /* This is the default behavior with the grid setup above, so no extra rule needed unless specific styling is required for posts 2-5 only. */
 }
 @media (max-width: 410px) {
+    nav .container{
+        padding-right: 0;
+    }
+    .logo img {
+        height: 88px;
+        padding: 3%;
+    }
     .post__subtitle3{
         font-size: 0.95em;
     }
@@ -784,11 +787,34 @@ nav .container {
         font-size: 0.9em
     }
     .mobile-contact-item.contact-email{
-        font-size: 0.8em
+        font-size: 0.9em
     }
 
 }
+@media (max-width: 385px) {
+    nav .container {
+        justify-content: flex-start; /* Aligns logo and toggle to the left */
+        gap: 10px; /* Adjust this value to set the space between logo and toggle */
+        /* Existing width: 90% and padding: 0 0 0 0 (from other media queries) should still apply */
+    }
+}
+@media (max-width: 360px) {
+    nav .container {
+        justify-content: flex-start; /* Aligns logo and toggle to the left */
+        gap: 0px; /* Adjust this value to set the space between logo and toggle */
+     /* Existing width: 90% and padding: 0 0 0 0 (from other media queries) should still apply */
+    }
+    .logo img {
+        padding-right: 0%;
+    }
+    .menu-toggle{
+        padding-left: 0;
+    }
+}
 @media (max-width: 335px) {
+    nav .container{
+        padding-right: 0;
+    }
     .nav-links {
 
         left: -80%;
