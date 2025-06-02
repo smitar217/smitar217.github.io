@@ -36,7 +36,7 @@ nav .container {
 }
 
 .logo img {
-    height: 50px;
+    height: 10vh;
     padding: 3%;
 }
 
@@ -575,7 +575,10 @@ nav .container {
         gap: 11%;
         padding-left: 0;
     }
-
+    .logo img {
+        height: 60px;
+        padding: 3%;
+    }
     .desktop-nav {
         display: none;
     }
