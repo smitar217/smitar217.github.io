@@ -37,7 +37,7 @@ nav .container {
 
 .logo img {
     height: 10vh;
-    width: auto;
+    width: auto !important;
     padding: 3%;
 }
 
