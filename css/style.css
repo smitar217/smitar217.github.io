@@ -36,7 +36,7 @@ nav .container {
 }
 
 .logo img {
-    height: 10vh;
+    height: 90px;
     width: auto !important;
     padding: 3%;
 }
@@ -772,6 +772,10 @@ nav .container {
   /* This is the default behavior with the grid setup above, so no extra rule needed unless specific styling is required for posts 2-5 only. */
 }
 @media (max-width: 410px) {
+    nav .container{
+        padding-right: 0;
+        gap: 0;
+    }
     .post__subtitle3{
         font-size: 0.95em;
     }
@@ -785,6 +789,11 @@ nav .container {
         font-size: 0.8em
     }
 
+}
+@media (max-width: 355px) {
+    .menu-toggle{
+        padding-left: 0;
+    }
 }
 @media (max-width: 335px) {
     .nav-links {
