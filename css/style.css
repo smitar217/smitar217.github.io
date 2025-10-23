@@ -252,6 +252,8 @@ ul {
     border: 8px solid #1E3D58;
     box-shadow: 0 10px 40px rgba(30, 61, 88, 0.3);
     position: relative;
+    background-color: #1E3D58;
+    background: radial-gradient(circle, #6d78ac 0%, #445077 50%, #1E3D58 100%);
 }
 
 .circular-image img {
