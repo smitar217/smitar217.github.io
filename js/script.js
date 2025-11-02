@@ -53,6 +53,27 @@ $(document).ready(function() {
     });
 
     // ==========================================
+    // Book Button - Open Email Application
+    // ==========================================
+    $('#book-btn').on('click', function() {
+        var mailto = 'mailto:office@irespond.rs'
+            + '?subject=' + encodeURIComponent('Booking Appointment')
+            + '&body=' + encodeURIComponent(
+                'Hello,\n\nI would like to book an appointment:\n\n[Please enter the date and time from the calendar]\n\nThank you!'
+            );
+        window.location.href = mailto;
+    });
+
+    $('#book-btn-sr').on('click', function() {
+        var mailto = 'mailto:office@irespond.rs'
+            + '?subject=' + encodeURIComponent('Zakazivanje termina')
+            + '&body=' + encodeURIComponent(
+                'Zdravo,\n\nželeo/la bih da zakažem termin:\n\n[Ovde unesite datum i vreme iz kalendara]\n\nHvala!'
+            );
+        window.location.href = mailto;
+    });
+
+    // ==========================================
     // Back to Top Button
     // ==========================================
     const backToTopBtn = $('#backToTop');

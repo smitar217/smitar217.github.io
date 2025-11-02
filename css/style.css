@@ -328,6 +328,78 @@ ul {
 }
 
 /* ==========================================
+   Reviews Section (Homepage)
+   ========================================== */
+.reviews {
+    padding: 5rem 0;
+    background-color: #FFFFFF;
+}
+
+.reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+    gap: 2.5rem;
+    margin-top: 3rem;
+}
+
+.review-card {
+    background-color: #F5EFE7;
+    padding: 2.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+}
+
+.review-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(30, 61, 88, 0.15);
+}
+
+.review-header {
+    margin-bottom: 1rem;
+}
+
+.review-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.review-name {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #1E3D58;
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.review-company {
+    font-size: 0.95rem;
+    color: #666;
+    margin: 0;
+    font-style: italic;
+}
+
+.review-rating {
+    margin-bottom: 1.5rem;
+    display: flex;
+    gap: 0.3rem;
+}
+
+.review-rating i {
+    color: #C7A96B;
+    font-size: 1.2rem;
+}
+
+.review-text {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #333;
+    margin: 0;
+    font-style: italic;
+}
+
+/* ==========================================
    Contact Info Section (Homepage)
    ========================================== */
 .contact-info {
@@ -440,6 +512,31 @@ ul {
 .footer-bottom p {
     font-size: 0.9rem;
     color: #E8F0F8;
+    margin-bottom: 1rem;
+}
+
+/* Language Switcher */
+.language-switcher {
+    margin-top: 1rem;
+    display: inline-block;
+}
+
+.lang-link {
+    color: #E8F0F8;
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    padding: 0 0.3rem;
+}
+
+.lang-link:hover {
+    color: #C7A96B;
+}
+
+.lang-link.active {
+    color: #C7A96B;
+    font-weight: 600;
 }
 
 /* ==========================================
@@ -614,11 +711,50 @@ ul {
     margin-bottom: 3rem;
 }
 
-.contact-form-container h2,
+.calendar-container h2,
 .contact-info-container h2 {
     font-size: 2rem;
     color: #1E3D58;
     margin-bottom: 2rem;
+}
+
+.calendar-wrapper {
+    width: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.calendar-wrapper iframe {
+    width: 100%;
+    height: 500px;
+    border: none;
+    display: block;
+}
+
+.book-button {
+    position: absolute;
+    bottom: 9px;
+    right: 5px;
+    background-color: #1E3D58;
+    color: #FFFFFF;
+    border: none;
+    padding: 0.8rem 1.8rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(30, 61, 88, 0.4);
+    transition: all 0.3s ease;
+    z-index: 10;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.book-button:hover {
+    background-color: #C7A96B;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(30, 61, 88, 0.5);
 }
 
 .contact-form {
@@ -1086,6 +1222,21 @@ ul {
         text-align: center;
     }
     
+    .reviews-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .calendar-wrapper iframe {
+        height: 500px;
+    }
+    
+    .book-button {
+        padding: 0.7rem 1.5rem;
+        font-size: 0.9rem;
+        bottom: 10px;
+        right: 10px;
+    }
+    
     .page-title {
         font-size: 2rem;
     }
@@ -1138,6 +1289,25 @@ ul {
     
     .contact-grid {
         grid-template-columns: 1fr;
+    }
+    
+    .reviews-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .review-card {
+        padding: 2rem;
+    }
+    
+    .calendar-wrapper iframe {
+        height: 400px;
+    }
+    
+    .book-button {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.85rem;
+        bottom: 8px;
+        right: 8px;
     }
     
     .page-title {
