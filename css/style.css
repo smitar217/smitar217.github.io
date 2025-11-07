@@ -661,6 +661,12 @@ ul {
     color: #FFFFFF;
 }
 
+.page-title strong {
+    color: #dfc187;
+    font-weight: 700;
+    font-size: 1.2em;
+}
+
 .page-subtitle {
     font-size: 1.2rem;
     color: #E8F0F8;
