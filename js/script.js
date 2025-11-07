@@ -429,6 +429,19 @@ $(document).ready(function() {
     lazyLoadImages(); // Run on page load
 
     // ==========================================
+    // Certifications Toggle (About Page)
+    // ==========================================
+    $('.certification-header').on('click', function() {
+        const certificationItem = $(this).parent('.certification-item');
+        
+        // Toggle the clicked item
+        certificationItem.toggleClass('open');
+        
+        // Optional: Close other certifications when opening one (uncomment if you want only one open at a time)
+        // $('.certification-item').not(certificationItem).removeClass('open');
+    });
+
+    // ==========================================
     // Console Welcome Message
     // ==========================================
     console.log('%c Welcome to RESPOND Coaching Website ', 
