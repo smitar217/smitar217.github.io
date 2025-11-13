@@ -208,14 +208,14 @@ ul {
    ========================================== */
 .hero {
     margin-top: 100px;
-    padding: 10rem 0;
+    padding: 6em 0;
     background: linear-gradient(135deg, #F5EFE7 0%, #E8F0F8 100%);
 }
 
 .hero-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 3rem;
+    gap: 6rem;
     align-items: center;
 }
 
@@ -227,7 +227,7 @@ ul {
     font-size: 3rem;
     color: #1E3D58;
     line-height: 1.1;
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
     font-weight: 700;
 }
 
@@ -238,10 +238,22 @@ ul {
     margin-bottom: 2rem;
 }
 
+.hero-quote {
+    font-size: 1.4rem;
+    font-style: italic;
+    color: #1E3D58;
+    line-height: 1.8;
+    margin: 5rem 0 1rem;
+    padding-left: 2rem;
+    border-left: 4px solid #C7A96B;
+    font-family: 'Playfair Display', serif;
+    font-weight: 400;
+}
+
 .hero-image {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: right;
+    align-items: right;
 }
 
 .circular-image {
@@ -334,6 +346,17 @@ ul {
     text-align: left;
 }
 
+.philosophy-signature {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    color: #ac9058;
+    font-weight: 500;
+    font-style: italic;
+    text-align: right;
+    margin-top: 1rem;
+    margin-bottom: 0;
+}
+
 /* Responsive - Philosophy Section */
 @media (max-width: 768px) {
     .philosophy-container {
@@ -357,6 +380,11 @@ ul {
         font-size: 1.3rem;
         text-align: center;
     }
+    
+    .philosophy-signature {
+        font-size: 1.1rem;
+        text-align: center;
+    }
 }
 
 @media (max-width: 480px) {
@@ -370,6 +398,10 @@ ul {
     
     .philosophy-highlight {
         font-size: 1.2rem;
+    }
+    
+    .philosophy-signature {
+        font-size: 1rem;
     }
 }
 
@@ -724,6 +756,14 @@ ul {
     margin-bottom: 1rem;
 }
 
+.service-number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #182d4d;
+    display: inline-block;
+    margin-right: 0.5rem;
+}
+
 .service-content p {
     font-size: 1rem;
     line-height: 1.8;
@@ -744,17 +784,119 @@ ul {
 }
 
 .service-features li::before {
-    content: '✓';
+    content: '•';
     position: absolute;
     left: 0;
+    top: 45%;
+    transform: translateY(-50%);
     color: #C7A96B;
     font-weight: 700;
     font-size: 1.2rem;
 }
 
 /* ==========================================
-   CTA Section
+   How It Works Section
    ========================================== */
+.how-it-works-section {
+    padding: 5rem 0;
+    background-color: #F8F9FA;
+}
+
+.how-it-works-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2.5rem;
+    margin: 3rem 0;
+}
+
+.work-step {
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
+}
+
+.step-number {
+    flex-shrink: 0;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #C7A96B 0%, #D4B87A 100%);
+    color: #FFFFFF;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    font-weight: 700;
+    box-shadow: 0 4px 15px rgba(199, 169, 107, 0.3);
+}
+
+.step-content h3 {
+    font-size: 1.5rem;
+    color: #1E3D58;
+    margin-bottom: 0.5rem;
+    font-family: 'Playfair Display', serif;
+}
+
+.step-content p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #666;
+    margin: 0;
+}
+
+.flexible-formats {
+    margin: 4rem 0;
+    padding: 3rem;
+    background-color: #FFFFFF;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.formats-list {
+    list-style: none;
+    padding: 0;
+    margin: 2rem 0 0;
+}
+
+.formats-list li {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #333;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.formats-list li:last-child {
+    margin-bottom: 0;
+}
+
+.formats-list li i {
+    color: #C7A96B;
+    font-size: 1.2rem;
+    margin-top: 0.2rem;
+    flex-shrink: 0;
+}
+
+.next-step {
+    margin: 4rem 0 0;
+    padding: 3rem;
+    background: linear-gradient(135deg, #E8F0F8 0%, #F5EFE7 100%);
+    border-radius: 12px;
+    text-align: center;
+}
+
+.next-step p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: #333;
+    margin: 1rem 0 0;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .cta-section {
     padding: 5rem 0;
     background: linear-gradient(135deg, #E8F0F8 0%, #F5EFE7 100%);
@@ -1413,6 +1555,12 @@ ul {
         font-size: 1rem;
     }
     
+    .hero-quote {
+        font-size: 1.2rem;
+        padding-left: 1.5rem;
+        margin: 1.5rem 0 1rem;
+    }
+    
     .circular-image {
         width: 250px;
         height: 250px;
@@ -1981,5 +2129,54 @@ ul {
     .checkin-list li {
         font-size: 1rem;
         padding-left: 2rem;
+    }
+    
+    /* How It Works Section Responsive */
+    .how-it-works-section {
+        padding: 3rem 0;
+    }
+    
+    .how-it-works-steps {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .work-step {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+    
+    .step-number {
+        width: 50px;
+        height: 50px;
+        font-size: 1.5rem;
+        margin: 0 auto;
+    }
+    
+    .step-content h3 {
+        font-size: 1.3rem;
+    }
+    
+    .step-content p {
+        font-size: 0.95rem;
+    }
+    
+    .flexible-formats {
+        padding: 2rem 1.5rem;
+        margin: 3rem 0;
+    }
+    
+    .formats-list li {
+        font-size: 1rem;
+    }
+    
+    .next-step {
+        padding: 2rem 1.5rem;
+        margin: 3rem 0 0;
+    }
+    
+    .next-step p {
+        font-size: 1.1rem;
     }
 }
