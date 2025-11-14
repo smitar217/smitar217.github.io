@@ -1485,6 +1485,12 @@ ul {
     .hero-title {
         font-size: 2rem;
     }
+
+    .hero-image {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
     
     .circular-image {
         width: 300px;
