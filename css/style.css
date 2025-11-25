@@ -1435,7 +1435,8 @@ ul {
         width: 100%;
         max-height: 0;
         overflow: hidden;
-        transition: max-height 0.3s ease;
+        transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), 
+                    padding 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         background-color: #FFFFFF;
         position: absolute;
         top: 100%;
@@ -1444,11 +1445,14 @@ ul {
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         z-index: 999;
         margin-top: 0;
+        padding: 0;
+        opacity: 1;
     }
     
     .nav-menu.active {
         max-height: 500px;
         padding: 1rem 0;
+        opacity: 1;
     }
     
     .nav-links {
@@ -1457,12 +1461,20 @@ ul {
         width: 100%;
     }
     
+    .nav-links li {
+        width: 40%;
+        display: block;
+    }
+    
     .nav-link {
-        padding: 1rem;
+        padding: 1.2rem 1rem;
         width: 100%;
         text-align: center;
         border-bottom: 1px solid #E8F0F8;
         display: block;
+        box-sizing: border-box;
+        min-height: 56px;
+        line-height: 1.5;
     }
     
     .mobile-menu-toggle {
