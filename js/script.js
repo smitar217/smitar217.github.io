@@ -86,10 +86,12 @@ $(document).ready(function() {
         }
     });
 
-    backToTopBtn.on('click', function() {
-        $('html, body').animate({
-            scrollTop: 0
-        }, 600, 'swing');
+    backToTopBtn.on('click', function(e) {
+        e.preventDefault();
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
     });
 
     // ==========================================
@@ -172,32 +174,6 @@ $(document).ready(function() {
             }, 5000);
         }
     });
-
-    // ==========================================
-    // Newsletter Form Submission
-    // ==========================================
-    $('#newsletterForm').on('submit', function(event) {
-        event.preventDefault();
-        
-        const email = $(this).find('input[type="email"]').val().trim();
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        
-        if (email === '') {
-            alert('Please enter your email address');
-            return;
-        }
-        
-        if (!emailRegex.test(email)) {
-            alert('Please enter a valid email address');
-            return;
-        }
-        
-        // Simulate newsletter subscription
-        console.log('Newsletter subscription:', email);
-        alert('Thank you for subscribing to our newsletter!');
-        $(this)[0].reset();
-    });
-
     // ==========================================
     // Load More Blog Posts (Blog Page)
     // ==========================================
@@ -280,8 +256,16 @@ $(document).ready(function() {
 
     // ==========================================
     // Hero Image Mouse Follow Effect (Full Hero Section Tracking)
+    // Desktop: Mouse follow | Mobile: Scroll-based movement
     // ==========================================
+    function isMobile() {
+        return window.innerWidth <= 768;
+    }
+
+    // Desktop: Mouse follow effect
     $('.hero').on('mousemove', function(e) {
+        if (isMobile()) return; // Skip on mobile
+        
         const $image = $('.circular-image img');
         const heroSection = $(this);
         const heroOffset = heroSection.offset();
@@ -310,13 +294,70 @@ $(document).ready(function() {
         });
     });
 
-    // Reset position when mouse leaves
+    // Reset position when mouse leaves (desktop only)
     $('.hero').on('mouseleave', function() {
+        if (isMobile()) return;
         $('.circular-image img').css({
             'transform': 'translate(0, 0)',
             'transition': 'transform 0.5s ease-out'
         });
     });
+
+    // Mobile: Scroll-based vertical movement
+    function updateMobileImagePosition() {
+        if (!isMobile()) {
+            $('.circular-image img').css('transform', 'translate(0, 0)');
+            return;
+        }
+
+        const $heroSection = $('.hero');
+        const $image = $('.circular-image img');
+        
+        if (!$heroSection.length || !$image.length) return;
+
+        const heroOffset = $heroSection.offset().top;
+        const heroHeight = $heroSection.outerHeight();
+        const scrollTop = $(window).scrollTop();
+        const windowHeight = $(window).height();
+
+        // Calculate how far through the hero section we've scrolled
+        // When hero top is at viewport top: progress = 0
+        // When hero center is at viewport center: progress = 0.5
+        // When hero bottom is at viewport bottom: progress = 1
+        const heroCenter = heroOffset + (heroHeight / 2);
+        const viewportCenter = scrollTop + (windowHeight / 2);
+        
+        // Calculate progress from -1 to 1 (center = 0)
+        const maxDistance = heroHeight / 2 + windowHeight / 2;
+        const distanceFromCenter = viewportCenter - heroCenter;
+        let progress = distanceFromCenter / maxDistance;
+        
+        // Clamp between -1 and 1
+        progress = Math.max(-1, Math.min(1, progress));
+        
+        // Move image: starts at top (-30px), center at 0, bottom at +30px
+        const moveY = progress * 30;
+        
+        $image.css({
+            'transform': `translateY(${moveY}px)`,
+            'transition': 'transform 0.15s ease-out'
+        });
+    }
+
+    // Run on scroll for mobile
+    $(window).on('scroll', function() {
+        if (isMobile()) {
+            updateMobileImagePosition();
+        }
+    });
+
+    // Run on resize to handle orientation changes
+    $(window).on('resize', function() {
+        updateMobileImagePosition();
+    });
+
+    // Initial call
+    updateMobileImagePosition();
 
     // ==========================================
     // Form Input Focus Animation
