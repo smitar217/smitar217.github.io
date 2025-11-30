@@ -1676,6 +1676,11 @@ ul {
     font-size: 1.2rem;
     line-height: 1.8;
     text-align: justify;
+    text-align-last: left;
+    word-spacing: -0.05em;
+    hyphens: none;
+    -webkit-hyphens: none;
+    -ms-hyphens: none;
     background-color: #FEFCF8;
     padding: 3rem 3.5rem;
     border-radius: 8px;
@@ -1708,6 +1713,11 @@ ul {
     margin-bottom: 1.5rem;
     color: #333;
     text-align: justify;
+    text-align-last: left;
+    word-spacing: -0.05em;
+    hyphens: none;
+    -webkit-hyphens: none;
+    -ms-hyphens: none;
     position: relative;
     padding-left: 20px;
 }
@@ -1863,7 +1873,23 @@ ul {
     
     .about-text-content {
         max-width: 100%;
-        padding: 2rem 2.5rem;
+        font-size: 1.1rem;
+        padding-top: 1.5rem;
+        padding-bottom: 1.5rem;
+        padding-left: 3rem;
+        padding-right: 0.5rem;
+    }
+    
+    .about-text-wrapper {
+        width: 100%;
+    }
+    
+    .certifications-container {
+        width: 100%;
+    }
+    
+    .certification-item {
+        width: 100%;
     }
 }
 
@@ -1878,7 +1904,12 @@ ul {
     
     .about-text-content {
         font-size: 1.1rem;
-        padding: 1.5rem 2rem;
+        padding-top: 1.5rem;
+        padding-bottom: 1.5rem;
+        padding-left: 2rem;
+        padding-right: 0.5rem;
+        text-align: left;
+        word-spacing: normal;
     }
     
     .about-text-content::before {
@@ -1887,6 +1918,8 @@ ul {
     
     .about-text-content p {
         padding-left: 15px;
+        text-align: left;
+        word-spacing: normal;
     }
     
     .about-content-block .section-title {
